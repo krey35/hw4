@@ -1,11 +1,19 @@
-<h1>Places</h1>
+<!-- <h1>Places</h1>  can use here or in the application view-->
 
+<% if @current_user %>
 <ul>
+  <!-- <p>
+    <a href="/places/new" class="btn btn-success"> New Place</a>
+  </p> -->
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
   <% end %>
 </ul>
 
-<p>
+<% else %>
+You must first <a href="/login">login</a> to post. 
+<% end %>
+
+<!-- <p>
   <a href="/places/new">New place</a>
-</p>
+</p> -->

@@ -1,29 +1,37 @@
 <h1><%= @place["name"] %></h1>
 
 <h2>My Posts</h2>
+  <div class="row">
 <% for post in @posts %>
+  <div class="col-md-4 col-sm-6 col-xs-12">
   <h3><%= post["title"] %></h3>
-
-<p>
-  <a class= "btn btn-primary btn-sm" href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-</p>
-
-  <div class= "row">
-  <% for post in @posts %>
-  <div class= "col-md-4 col-sm-6">
-  <h1><%= post["title"] %></h1>
-  <% if post.uploaded_image.attached? %>
-  <img src = "<% url_for(post.uploaded_image) %>">
-  <% end %>
-
   <h4><%= post["posted_on"] %></h4>
+
+<% if post.uploaded_image.attached? %>
+  <img width="200px" src="<% url_for(post.uploaded_image) %>" class="img-fluid">
+    <% else %>
+    No Image
+<% end %>
+
   <p><%= post["description"] %></p>
   </div>
 <% end %>
-</div>
+   </div>
+  
+  <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-sucess">New Post</a>
+
+  <!-- <div class= "row">
+  <% for post in @posts %>
+  <div class= "col-md-4 col-sm-6">
+  <h1><%= post["title"] %></h1>
+  
+<p><%= post["description"] %></p>
+  </div>
+<% end %> -->
+
 
 <p>
-  <a class= "btn btn-primary btn-sm" href="/places">Back to All Places</a>
+  <a href="/places">Back to All Places</a>
 </p>
 
 </div>

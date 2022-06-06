@@ -27,10 +27,10 @@
   </div>
 
   <!-- <p> -->
-  <%= form.submit "Create Post", :class => "btn btn-primary" %>
+  <%= form.submit "Create Post", :class => "btn btn-primary" %> <!-- can also use button button success here -->
   <!-- </p> -->
   <!-- <%= form.hidden_field "place_id" %> -->
 <% end %>
 <% else %>
-You must first <a href="/login"></a> to post.
+You must first <a href="/login">login</a> to post.
 <% end %>
