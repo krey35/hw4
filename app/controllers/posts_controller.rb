@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    if @current_user
     @post = Post.new
     @post["title"] = params["post"]["title"]
     @post["description"] = params["post"]["description"]
@@ -18,6 +19,9 @@ class PostsController < ApplicationController
     @post["place_id"] = params["post"]["place_id"]
     @post["user_id"] = @current_user["id"]
     @post.save
+    else
+      flash["notice"] = "Login first."
+    end 
     redirect_to "/places/#{@post["place_id"]}"
   end
 
