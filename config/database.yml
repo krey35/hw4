@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: hw4-kreyes_production
+  username: hw4-kreyes
+  password: <%= ENV["HW4-KREYES_DATABASE_PASSWORD"] %>
