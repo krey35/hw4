@@ -10,10 +10,17 @@
   <h6><%= post["posted_on"] %></h6>
 
 <% if post.uploaded_image.attached? %>
-  <img width="200px" src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+  <img width= "200px" src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
     <% else %>
     No Image
 <% end %>
+
+<!-- for reference only....use this to keep image dimensions ---
+<% if post.uploaded_image.attached? %>
+  <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+    <% else %>
+    No Image
+<% end %> -->
 
   <p class="text-break"><%= post["description"] %></p>
   </div>
